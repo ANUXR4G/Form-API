@@ -36,6 +36,7 @@ const App = () => {
       // Send data to your API using POST method
       const apiResponse = await axios.post('/api/leads', formData);
       console.log('API Response:', apiResponse.data);
+
       toast.success('Form submitted successfully!');
     } catch (error) {
       console.error('Error submitting the form:', error);
@@ -44,7 +45,6 @@ const App = () => {
       setIsSubmitting(false);
     }
   };
-
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
@@ -177,7 +177,6 @@ const App = () => {
           </div>
         </form>
       </div>
-      <ToastContainer />
     </div>
   );
 };
