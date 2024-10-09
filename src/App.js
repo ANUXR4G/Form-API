@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const [formData, setFormData] = useState({
@@ -34,16 +36,10 @@ const App = () => {
       // Send data to your API using POST method
       const apiResponse = await axios.post('/api/leads', formData);
       console.log('API Response:', apiResponse.data);
-
-      // Send data to Google Sheets using POST method
-      const googleScriptUrl = '/google-script/exce';
-      const googleResponse = await axios.post(googleScriptUrl, formData);
-      console.log('Google Sheets Response:', googleResponse.data);
-
-      alert('Form submitted successfully!');
+      toast.success('Form submitted successfully!');
     } catch (error) {
       console.error('Error submitting the form:', error);
-      alert('There was an error submitting the form. Please try again.');
+      toast.error('There was an error submitting the form. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -52,6 +48,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+      <ToastContainer />
       <div className="w-full max-w-lg bg-white p-8 border-2 border-red-300 rounded-lg shadow-lg">
         <h2 className="text-center text-2xl font-bold mb-6">DropZone</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -180,6 +177,7 @@ const App = () => {
           </div>
         </form>
       </div>
+      <ToastContainer />
     </div>
   );
 };

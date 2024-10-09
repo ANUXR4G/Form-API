@@ -8,14 +8,5 @@ module.exports = function(app) {
       changeOrigin: true,
     })
   );
-
-  app.use(
-    '/google-script',
-    createProxyMiddleware({
-      target: 'https://script.google.com/macros/s/AKfycbxwmL0ufihheJn-JUuPlsAP_dNCmt9t3KDvitMe2UvLLQZb0Bm04iC8YP_3t-4ass5fwg',
-      changeOrigin: true,
-      
-    })
-  );
 };
 
