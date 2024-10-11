@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -19,6 +19,16 @@ const App = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+  // Load the TrustedForm script
+  const tfScript = document.createElement('script');
+  tfScript.type = 'text/javascript';
+  tfScript.async = true;
+  tfScript.src = 'https://api.trustedform.com/trustedform.js?field=trusted_form_cert_url&ping_field=trusted_form_cert&l=' +
+    new Date().getTime() + Math.random();
+  document.body.appendChild(tfScript);
+}, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -52,8 +62,6 @@ const App = () => {
       <div className="w-full max-w-lg bg-white p-8 border-2 border-red-300 rounded-lg shadow-lg">
         <h2 className="text-center text-2xl font-bold mb-6">NEC Claims</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
-         
-          
           <div>
             <label className="block font-semibold">First Name:</label>
             <input 
@@ -152,6 +160,3 @@ const App = () => {
 };
 
 export default App;
-
-/*https://api.trustedform.com/trustedform.js?field=xxTrustedFormCertUrl&ping_field=xxTrustedFormPingUrl&l=' + 
-*/
