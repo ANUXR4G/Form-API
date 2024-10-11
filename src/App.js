@@ -14,7 +14,7 @@ const App = () => {
     'state': '',
     'zip': '',
     'sub_id': '',
-    'trusted_form_cert_url': '',
+    'trusted_form_cert_url': 'https://cert.trustedform.com/454a35b802f3e7b63ffabb4efedb7c6ebe67886c',
     'trusted_form_cert': '',
   });
 
@@ -149,7 +149,7 @@ const App = () => {
           <div>
             <label className="block font-semibold">Trusted Forms URL:</label>
             <input 
-              type="text" 
+              type="password" 
               name="trusted_form_cert_url"
               value={formData.trusted_form_cert_url}
               onChange={handleChange}
