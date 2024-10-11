@@ -14,7 +14,7 @@ const App = () => {
     'state': '',
     'zip': '',
     'sub_id': '23426',
-    'trusted_form_cert_url': 'https://cert.trustedform.com/454a35b802f3e7b63ffabb4efedb7c6ebe67886c',
+    'trusted_form_cert_url': '',
     'trusted_form_cert': '',
   });
 
@@ -52,28 +52,8 @@ const App = () => {
       <div className="w-full max-w-lg bg-white p-8 border-2 border-red-300 rounded-lg shadow-lg">
         <h2 className="text-center text-2xl font-bold mb-6">DropZone</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block font-semibold">Lead Token:</label>
-            <input 
-              type="password" 
-              name="lead_token"
-              value={formData.lead_token}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
-              required
-            />
-          </div>
-          <div>
-            <label className="block font-semibold">Traffic Source Id:</label>
-            <input 
-              type="password" 
-              name="traffic_source_id"
-              value={formData.traffic_source_id}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
-              required
-            />
-          </div>
+         
+          
           <div>
             <label className="block font-semibold">First Name:</label>
             <input 
@@ -137,19 +117,9 @@ const App = () => {
             />
           </div>
           <div>
-            <label className="block font-semibold">SubId:</label>
-            <input 
-              type="password" 
-              name="sub_id"
-              value={formData.sub_id}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
-            />
-          </div>
-          <div>
             <label className="block font-semibold">Trusted Forms URL:</label>
             <input 
-              type="password" 
+              type="text" 
               name="trusted_form_cert_url"
               value={formData.trusted_form_cert_url}
               onChange={handleChange}
