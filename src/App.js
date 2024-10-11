@@ -7,7 +7,7 @@ const App = () => {
   const [formData, setFormData] = useState({
     'lead_token': '',
     'caller_id': '',
-    'traffic_source_id': '',
+    'traffic_source_id': '563967',
     'email': '',
     'first_name': '',
     'last_name': '',
@@ -66,7 +66,7 @@ const App = () => {
           <div>
             <label className="block font-semibold">Traffic Source Id:</label>
             <input 
-              type="text" 
+              type="password" 
               name="traffic_source_id"
               value={formData.traffic_source_id}
               onChange={handleChange}
