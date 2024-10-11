@@ -50,7 +50,7 @@ const App = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
       <ToastContainer />
       <div className="w-full max-w-lg bg-white p-8 border-2 border-red-300 rounded-lg shadow-lg">
-        <h2 className="text-center text-2xl font-bold mb-6">DropZone</h2>
+        <h2 className="text-center text-2xl font-bold mb-6">NEC Claims</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
          
           
@@ -152,3 +152,6 @@ const App = () => {
 };
 
 export default App;
+
+/*https://api.trustedform.com/trustedform.js?field=xxTrustedFormCertUrl&ping_field=xxTrustedFormPingUrl&l=' + 
+*/
