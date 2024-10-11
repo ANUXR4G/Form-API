@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { getDatabase, ref, set } from "firebase/database";
+import { app } from './lib/firebase';
+import { v4 as uuidv4 } from 'uuid';
+
+function writeUserData(userId, data) {
+  const db = getDatabase(app);
+  set(ref(db, 'users/' + userId), data);
+}
 
 const App = () => {
   const [formData, setFormData] = useState({
@@ -21,14 +29,14 @@ const App = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-  // Load the TrustedForm script
-  const tfScript = document.createElement('script');
-  tfScript.type = 'text/javascript';
-  tfScript.async = true;
-  tfScript.src = 'https://api.trustedform.com/trustedform.js?field=trusted_form_cert_url&ping_field=trusted_form_cert&l=' +
-    new Date().getTime() + Math.random();
-  document.body.appendChild(tfScript);
-}, []);
+    // Load the TrustedForm script
+    const tfScript = document.createElement('script');
+    tfScript.type = 'text/javascript';
+    tfScript.async = true;
+    tfScript.src = 'https://api.trustedform.com/trustedform.js?field=trusted_form_cert_url&ping_field=trusted_form_cert&l=' +
+      new Date().getTime() + Math.random();
+    document.body.appendChild(tfScript);
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -46,6 +54,10 @@ const App = () => {
       // Send data to your API using POST method
       const apiResponse = await axios.post('/api/leads', formData);
       console.log('API Response:', apiResponse.data);
+
+      // Generate a unique user ID
+      const userId = uuidv4();
+      writeUserData(userId, formData);
 
       toast.success('Form submitted successfully!');
     } catch (error) {
