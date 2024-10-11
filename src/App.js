@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const [formData, setFormData] = useState({
-    'lead_token': '',
+    'lead_token': '61725b25f21c4d4d8773c88313c3f390',
     'caller_id': '',
     'traffic_source_id': '563967',
     'email': '',
@@ -55,7 +55,7 @@ const App = () => {
           <div>
             <label className="block font-semibold">Lead Token:</label>
             <input 
-              type="text" 
+              type="password" 
               name="lead_token"
               value={formData.lead_token}
               onChange={handleChange}
