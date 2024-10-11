@@ -13,7 +13,7 @@ const App = () => {
     'last_name': '',
     'state': '',
     'zip': '',
-    'sub_id': '',
+    'sub_id': '23426',
     'trusted_form_cert_url': 'https://cert.trustedform.com/454a35b802f3e7b63ffabb4efedb7c6ebe67886c',
     'trusted_form_cert': '',
   });
@@ -139,7 +139,7 @@ const App = () => {
           <div>
             <label className="block font-semibold">SubId:</label>
             <input 
-              type="text" 
+              type="password" 
               name="sub_id"
               value={formData.sub_id}
               onChange={handleChange}
