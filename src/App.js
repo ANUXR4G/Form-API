@@ -52,7 +52,7 @@ const App = () => {
     setIsSubmitting(true);
     try {
       // Send data to your API using POST method
-      const apiResponse = await axios.post('https://live-calls-network.trackdrive.com/api/v1//leads', formData);
+      const apiResponse = await axios.post('https://live-calls-network.trackdrive.com/api/v1/leads', formData);
       console.log('API Response:', apiResponse.data);
 
       // Generate a unique user ID
